@@ -15,7 +15,7 @@ public class Ticket {
         this.esPalin=esPalin;
     }
 
-    public String getName() {
+    public String getNombre() {
         return name;
     }
 
@@ -51,7 +51,7 @@ public class Ticket {
 
     public void print(){
         System.out.println("Datos del Cliente");
-        System.out.println("Nombre: " + this.getName());
+        System.out.println("Nombre: " + this.getNombre());
         System.out.println("Monto Original: " + this.getMontoOriginal());
         System.out.println("Total a pagar: " + this.getFinalAmount());
         if(this.esPalin){
