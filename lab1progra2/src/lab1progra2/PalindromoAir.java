@@ -34,7 +34,7 @@ public class PalindromoAir {
         if (index >= posicion.length){
             return -1;
         }
-        if (posicion[index] != null && posicion[index].getName().equalsIgnoreCase(name.trim())){
+        if (posicion[index] != null && posicion[index].getNombre().equalsIgnoreCase(name.trim())){
             return index;
         }
         return searchPassenger (name, index + 1);
@@ -52,7 +52,7 @@ public class PalindromoAir {
         if (nombre==null || nombre.isEmpty()){
             return false;
         }
-        String palabra=nombre.toLowerCase();
+        String palabra=nombre.replaceAll("\\s+", "").toLowerCase();
         return revisarpali (palabra, 0, palabra.length()-1);
     }
     public String printPassengers( int index){
@@ -61,7 +61,7 @@ public class PalindromoAir {
     }
     String posactual= "";
     if (posicion[index]!=null){
-        posactual =" Asiento asignado es: "+ (index+1) + posicion[index];
+        posactual =" Asiento asignado es: "+ (index+1) + " - Pasajero: " + posicion[index].getNombre() + "\n";
     }
     return posactual +printPassengers (index +1);
     }
