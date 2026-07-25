@@ -1,11 +1,11 @@
-public class Tickets {
+public class Ticket {
     private String nombre;
     private double finalAmount;
     public double montoOriginal;
     public double descuento;
     public boolean esPalin;
 
-    public Tickets(){
+    public Ticket(String nombre, double finalAmout, double montoOriginal, double descuento, boolean esPalin){
         this.nombre="";
         this.finalAmount=0;
         this.montoOriginal=0;
