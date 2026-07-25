@@ -79,11 +79,11 @@ public class PalindromoAir {
         return posactual + printPassengers(index + 1);
     }
 
-    double ingresos;
     public double income(int index) {
         if (index >= posicion.length) {
             return 0;
         }
+        double ingresos;
         if (posicion[index] != null) {
             ingresos = posicion[index].getFinalAmount();
         } else {
@@ -113,12 +113,13 @@ public class PalindromoAir {
             preciofinal = precionormal * 0.80;
         } else {
             preciofinal = precionormal;
-            Ticket newTicket = new Ticket(nombre.trim(), preciofinal, precionormal, descuento, palindromorev);
-            posicion[posindex] = newTicket;
-
-            return posindex;
+            
         }
-        return 0;
+        Ticket newTicket = new Ticket(nombre.trim(), preciofinal, precionormal, descuento, palindromorev);
+        posicion[posindex] = newTicket;
+        return posindex;
+
+        // return 0;
     }
 
     public boolean cancelTicket(String nombre) {

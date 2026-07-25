@@ -9,10 +9,10 @@ public class Ticket {
     public boolean esPalin;
 
     public Ticket(String name, double finalAmout, double montoOriginal, double descuento, boolean esPalin){
-        this.name="";
-        this.finalAmount=0;
-        this.montoOriginal=0;
-        this.esPalin=false;
+        this.name=name;
+        this.finalAmount=finalAmount;
+        this.montoOriginal=montoOriginal;
+        this.esPalin=esPalin;
     }
 
     public String getName() {
