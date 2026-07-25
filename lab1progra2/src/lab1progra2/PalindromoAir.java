@@ -10,7 +10,7 @@ package lab1progra2;
  * @author David Suazo Palao
  */
 public class PalindromoAir {
-   private Ticket[] posicion;
+    private Ticket[] posicion;
     private static final double precio=100;
     private static final double descuento=0.20;
     
@@ -34,7 +34,7 @@ public class PalindromoAir {
         if (index >= posicion.length){
             return -1;
         }
-        if (posicion[index] != null && posicion[index].getname()){
+        if (posicion[index] != null && posicion[index].getNombre()){
             return index;
         }
         return searchPassenger (name, index + 1);

@@ -1,3 +1,5 @@
+package lab1progra2;
+
 public class Ticket {
     private String nombre;
     private double finalAmount;
