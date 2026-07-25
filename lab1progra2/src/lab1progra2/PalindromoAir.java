@@ -17,6 +17,7 @@ public class PalindromoAir {
     public PalindromoAir(){
         this.posicion=new Ticket[30];
     }
+
     public Ticket[] getPosicion(){
         return posicion;
     }
@@ -30,15 +31,17 @@ public class PalindromoAir {
         }
         return firstAvailable (index+1);
     }
+
     public int searchPassenger(String name, int index){
         if (index >= posicion.length){
             return -1;
         }
-        if (posicion[index] != null && !posicion[index].getNombre().isEmpty()){
+        if (posicion[index] != null && posicion[index].getNombre().equalsIgnoreCase(name)){
             return index;
         }
         return searchPassenger (name, index + 1);
     }
+    
     private boolean revisarpali( String palabra, int izq, int der){
         if (izq>= der){
             return true;
