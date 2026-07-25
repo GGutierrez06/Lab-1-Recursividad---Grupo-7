@@ -84,7 +84,19 @@ public class PalindromoAir {
         posicion[index]=null;
         reset(index +1);
     }
-    
+    public int sellTicket (String nombre){
+        int posindex= firstAvailable(0);
+        if (posindex ==-1){
+            return -1;
+        }
+        boolean palindromorev= isPalindromo(nombre);
+        double precionormal= precio;
+        double preciofinal;
+        
+        if (palindromorev){
+            finalPrice= prec
+        }
+    }
     }
         
    
