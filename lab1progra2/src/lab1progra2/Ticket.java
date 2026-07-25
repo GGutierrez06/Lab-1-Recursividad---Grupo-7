@@ -1,3 +1,5 @@
+package lab1progra2;
+
 public class Ticket {
     private String nombre;
     private double finalAmount;
@@ -5,11 +7,12 @@ public class Ticket {
     public double descuento;
     public boolean esPalin;
 
-    public Ticket(String nombre, double finalAmout, double montoOriginal, double descuento, boolean esPalin){
-        this.nombre="";
-        this.finalAmount=0;
-        this.montoOriginal=0;
-        this.esPalin=false;
+    public Ticket(String nombre, double finalAmount, double montoOriginal, double descuento, boolean esPalin){
+        this.nombre=nombre;
+        this.finalAmount = finalAmount;
+        this.montoOriginal=montoOriginal;
+        this.descuento=descuento;
+        this.esPalin=esPalin;
     }
 
     public String getNombre() {
@@ -47,10 +50,10 @@ public class Ticket {
     }
 
     public void print(){
-        System.out.println("---Datos del Cliete---");
+        System.out.println("Datos del Cliente");
         System.out.println("Nombre: " + this.getNombre());
+        System.out.println("Monto Original: " + this.getMontoOriginal());
         System.out.println("Total a pagar: " + this.getFinalAmount());
-        System.out.println("Nombre: " + this.getMontoOriginal());
         if(this.esPalin){
             System.out.println("El pasajero si recibe descuento");
         }
