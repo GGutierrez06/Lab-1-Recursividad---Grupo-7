@@ -47,15 +47,15 @@ public class Tickets {
 
     public void print(){
         System.out.println("---Datos del Cliete---");
-        System.out.println("Nombre: " + getNombre);
-        System.out.println("Total a pagar: " + getFinalAmount);
-        System.out.println("Nombre: " + getMontoOriginal);
-        if(isEsPalin){
+        System.out.println("Nombre: " + this.getNombre());
+        System.out.println("Total a pagar: " + this.getFinalAmount());
+        System.out.println("Nombre: " + this.getMontoOriginal());
+        if(this.esPalin){
             System.out.println("El pasajero si recibe descuento");
         }
-        else
+        else{
             System.out.println("El pasajero no recibe descuento");
-
+        }
     }
     
 }
