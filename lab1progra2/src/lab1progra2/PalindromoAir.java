@@ -77,6 +77,14 @@ public class PalindromoAir {
         }
         return ingresos + income(index + 1);       
         }
+    public void reset (int index){
+        if (index >=posicion.length){
+            return;
+        }
+        posicion[index]=null;
+        reset(index +1);
+    }
+    
     }
         
    
