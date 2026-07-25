@@ -8,7 +8,7 @@ public class Ticket {
     public double descuento;
     public boolean esPalin;
 
-    public Ticket(String name, double finalAmout, double montoOriginal, double descuento, boolean esPalin){
+    public Ticket(String name, double finalAmount, double montoOriginal, double descuento, boolean esPalin){
         this.name=name;
         this.finalAmount=finalAmount;
         this.montoOriginal=montoOriginal;
