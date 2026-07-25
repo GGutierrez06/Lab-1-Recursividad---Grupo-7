@@ -64,6 +64,19 @@ public class PalindromoAir {
         posactual =" Asiento asignado es: "+ (index+1) + posicion[index];
     }
     return posactual +printPassengers (index +1);
-    
     }
-}
+    public double income(int index){
+        if (index >= posicion.length){
+            return 0;
+        }
+        double ingresos;
+        if (posicion[index] != null) {
+            ingresos = posicion[index].getFinalAmount();
+        } else {
+            ingresos = 0;
+        }
+        return ingresos + income(index + 1);       
+        }
+    }
+        
+   
