@@ -1,6 +1,7 @@
 package lab1progra2;
 
 public class Ticket {
+    static PalindromoAir pal = new PalindromoAir();
     private String nombre;
     private double finalAmount;
     public double montoOriginal;
@@ -45,7 +46,7 @@ public class Ticket {
     }
 
     public void setEsPalin(boolean esPalin) {
-        this.esPalin = esPalin;
+        this.esPalin = pal.isPalindromo(nombre);
     }
 
     public void print(){
