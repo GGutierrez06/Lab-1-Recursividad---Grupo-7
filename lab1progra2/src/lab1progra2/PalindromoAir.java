@@ -34,7 +34,7 @@ public class PalindromoAir {
         if (index >= posicion.length){
             return -1;
         }
-        if (posicion[index] != null && posicion[index].getNombre()){
+        if (posicion[index] != null && !posicion[index].getNombre().isEmpty()){
             return index;
         }
         return searchPassenger (name, index + 1);
