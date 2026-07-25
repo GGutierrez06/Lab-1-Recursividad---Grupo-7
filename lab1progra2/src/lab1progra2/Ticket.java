@@ -45,9 +45,9 @@ public class Ticket {
         return esPalin;
     }
 
-    public void setEsPalin(boolean esPalin) {
-        this.esPalin = pal.isPalindromo(name);
-    }
+    // public void setEsPalin(boolean esPalin) {
+    //     this.esPalin = pal.isPalindromo(name);
+    // }
 
     public void print(){
         System.out.println("---Datos del Cliete---");

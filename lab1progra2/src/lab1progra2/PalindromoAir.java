@@ -56,7 +56,7 @@ public class PalindromoAir {
         if (nombre == null || nombre.isEmpty()) {
             return false;
         }
-        String palabra = nombre.toLowerCase();
+        String palabra=nombre.replaceAll("\\s+", "").toLowerCase();
         return revisarpali(palabra, 0, palabra.length() - 1);
     }
 
@@ -79,11 +79,11 @@ public class PalindromoAir {
         return posactual + printPassengers(index + 1);
     }
 
+    double ingresos;
     public double income(int index) {
         if (index >= posicion.length) {
             return 0;
         }
-        double ingresos;
         if (posicion[index] != null) {
             ingresos = posicion[index].getFinalAmount();
         } else {
