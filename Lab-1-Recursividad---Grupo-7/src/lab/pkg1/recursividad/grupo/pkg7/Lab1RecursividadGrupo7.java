@@ -4,6 +4,8 @@
  */
 package lab.pkg1.recursividad.grupo.pkg7;
 
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author User
@@ -14,7 +16,10 @@ public class Lab1RecursividadGrupo7 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        SwingUtilities.invokeLater(() -> {
+            Pantalla ventana = new Pantalla();
+            ventana.setVisible(true);
+        });
     }
     
 }
