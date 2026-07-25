@@ -36,7 +36,7 @@ public class PalindromoAir {
         if (index >= posicion.length) {
             return -1;
         }
-        if (posicion[index] != null && posicion[index].getNombre().equalsIgnoreCase(name)) {
+        if (posicion[index] != null && posicion[index].getName().equalsIgnoreCase(name)) {
             return index;
         }
         return searchPassenger(name, index + 1);
@@ -66,7 +66,15 @@ public class PalindromoAir {
         }
         String posactual = "";
         if (posicion[index] != null) {
-            posactual = " Asiento asignado es: " + (index + 1) + posicion[index];
+            // posactual = " Asiento asignado es: " + (index + 1) + posicion[index];
+            String palin;
+            if(posicion[index].isEsPalin()){
+                palin = "Es palindromo";
+            }
+            else{
+                palin = "No es palindromo";
+            }
+            posactual = "Asiento " + (index+1) + "asignado a "+posicion[index].getName() + " \n Monto Pagado: "+ posicion[index].getFinalAmount() + "\nMonto Original a pagar: " + posicion[index].getMontoOriginal() + "\n" + palin;
         }
         return posactual + printPassengers(index + 1);
     }
