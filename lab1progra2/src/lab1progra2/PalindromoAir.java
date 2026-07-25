@@ -92,4 +92,39 @@ public class PalindromoAir {
         reset(index + 1);
     }
 
+    public int sellTicket(String nombre) {
+        int posindex = firstAvailable(0);
+        if (posindex == -1) {
+            return -1;
+        }
+        boolean palindromorev = isPalindromo(nombre);
+        double precionormal = precio;
+        double preciofinal;
+
+        if (palindromorev) {
+            preciofinal = precionormal * 0.80;
+        } else {
+            preciofinal = precionormal;
+            Ticket newTicket = new Ticket(nombre.trim(), preciofinal, precionormal, descuento, palindromorev);
+            posicion[posindex] = newTicket;
+
+            return posindex;
+        }
+        return 0;
+    }
+
+    public boolean cancelTicket(String nombre) {
+        int index = searchPassenger(nombre, 0);
+        if (index != -1) {
+            posicion[index] = null;
+            return true;
+        }
+        return false;
+    }
+
+    public double dispatch() {
+        double totalingresos = income(0);
+        reset(0);
+        return totalingresos;
+    }
 }

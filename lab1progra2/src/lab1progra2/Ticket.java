@@ -2,25 +2,25 @@ package lab1progra2;
 
 public class Ticket {
     static PalindromoAir pal = new PalindromoAir();
-    private String nombre;
+    private String name;
     private double finalAmount;
     public double montoOriginal;
     public double descuento;
     public boolean esPalin;
 
-    public Ticket(String nombre, double finalAmout, double montoOriginal, double descuento, boolean esPalin){
-        this.nombre="";
+    public Ticket(String name, double finalAmout, double montoOriginal, double descuento, boolean esPalin){
+        this.name="";
         this.finalAmount=0;
         this.montoOriginal=0;
         this.esPalin=false;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getFinalAmount() {
@@ -46,12 +46,12 @@ public class Ticket {
     }
 
     public void setEsPalin(boolean esPalin) {
-        this.esPalin = pal.isPalindromo(nombre);
+        this.esPalin = pal.isPalindromo(name);
     }
 
     public void print(){
         System.out.println("---Datos del Cliete---");
-        System.out.println("Nombre: " + this.getNombre());
+        System.out.println("Nombre: " + this.getName());
         System.out.println("Total a pagar: " + this.getFinalAmount());
         System.out.println("Nombre: " + this.getMontoOriginal());
         if(this.esPalin){
