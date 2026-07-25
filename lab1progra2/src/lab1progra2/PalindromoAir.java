@@ -34,7 +34,7 @@ public class PalindromoAir {
         if (index >= posicion.length){
             return -1;
         }
-        if (posicion[index] != null && posicion[index].getname()){
+        if (posicion[index] != null && posicion[index].getName().equalsIgnoreCase(name.trim())){
             return index;
         }
         return searchPassenger (name, index + 1);
@@ -84,24 +84,27 @@ public class PalindromoAir {
         posicion[index]=null;
         reset(index +1);
     }
-    public int sellTicket (String nombre){
-        int posindex= firstAvailable(0);
-        if (posindex ==-1){
+public int sellTicket(String nombre) {
+        int posindex = firstAvailable(0);
+        if (posindex == -1) {
             return -1;
         }
-        boolean palindromorev= isPalindromo(nombre);
-        double precionormal= precio;
+
+        boolean palindromorev = isPalindromo(nombre);
+        double precionormal = precio;
         double preciofinal;
-        
-        if (palindromorev){
-            preciofinal= precionormal*0.80;
-        }else{
-            preciofinal=precionormal;
-            Ticket newTicket = new Ticket(nombre.trim(),preciofinal, precionormal,descuento, palindromorev);
+        double montoDescuento = 0.0;
+
+        if (palindromorev) {
+            montoDescuento = precionormal * descuento;
+            preciofinal = precionormal - montoDescuento;
+        } else {
+            preciofinal = precionormal;
+        }
+        Ticket newTicket = new Ticket(nombre.trim(), preciofinal, precionormal, montoDescuento, palindromorev);
         posicion[posindex] = newTicket;
 
         return posindex;
-        }
     }
     public boolean cancelTicket(String nombre){
         int index= searchPassenger(nombre, 0);
