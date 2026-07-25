@@ -18,5 +18,23 @@ public class Pantalla extends JFrame {
     private JButton[] botonesAsientos = new JButton[30];
     private JTextField txtNombrePasajero;
     private JTextArea areaConsola;
-
+    
+    private JButton btnSellTicket;
+    private JButton btnCancelTicket;
+    private JButton btnDispatch;
+    private JButton btnPrintPassengers;
+    private JButton btnViewIncome;
+    private JButton btnSearchPassenger;
+    
+    private final Color COLOR_DISPONIBLE = new Color(46, 204, 113); 
+    private final Color COLOR_OCUPADO = new Color(231, 76, 60);     
+    private final Color COLOR_PALINDROMO = new Color(241, 196, 15);
+    
+    public Pantalla(){
+        setTitle("Sistema de Reservas de Boletos de Avion ");
+        setSize(950, 650);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setLayout(new BorderLayout(10, 10));
+    }
 }
