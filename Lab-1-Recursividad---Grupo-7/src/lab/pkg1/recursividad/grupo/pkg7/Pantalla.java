@@ -96,4 +96,23 @@ public class Pantalla extends JFrame {
         areaConsola.append("Sistema de Vuelo preparado y listo para continuar.\n");
     }
     
+    public void actualizarAsiento(int indice, String nombrePasajero) {
+        if (nombrePasajero == null || nombrePasajero.trim().isEmpty()) {
+            botonesAsientos[indice].setBackground(COLOR_DISPONIBLE);
+//        } else if (esPalindromo(nombrePasajero)) {
+//            botonesAsientos[indice].setBackground(COLOR_PALINDROMO);
+        } else {
+            botonesAsientos[indice].setBackground(COLOR_OCUPADO);
+        }
+    }
+
+   
+    public String getNombrePasajero() {
+        return txtNombrePasajero.getText().trim();
+    }
+
+    public void escribirConsola(String mensaje) {
+        areaConsola.append(mensaje + "\n");
+    }
+    
 }
