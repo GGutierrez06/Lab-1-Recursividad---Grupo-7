@@ -2,6 +2,7 @@ public class Tickets {
     private String nombre;
     private double finalAmount;
     public double montoOriginal;
+    public double descuento;
     public boolean esPalin;
 
     public Tickets(){
