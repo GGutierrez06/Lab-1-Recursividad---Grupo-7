@@ -94,7 +94,13 @@ public class PalindromoAir {
         double preciofinal;
         
         if (palindromorev){
-            finalPrice= prec
+            preciofinal= precionormal*0.80;
+        }else{
+            preciofinal=precionormal;
+            Ticket newTicket = new Ticket(nombre.trim(),preciofinal, precionormal,descuento, palindromorev);
+        posicion[posindex] = newTicket;
+
+        return posindex;
         }
     }
     }
