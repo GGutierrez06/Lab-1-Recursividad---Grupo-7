@@ -103,6 +103,14 @@ public class PalindromoAir {
         return posindex;
         }
     }
+    public boolean cancelTicket(String nombre){
+        int index= searchPassenger(nombre, 0);
+        if (index !=-1){
+            posicion[index]= null;
+            return true;
+        }
+        return false;
+    }
     }
         
    
