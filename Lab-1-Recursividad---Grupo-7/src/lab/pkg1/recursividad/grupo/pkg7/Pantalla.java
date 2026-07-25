@@ -6,57 +6,95 @@ package lab.pkg1.recursividad.grupo.pkg7;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 /**
  *
- * @author gabri
+ * @author User
  */
-public class Pantalla {
-    
-    public void iniciarVentana(){
-        JFrame ventana = new JFrame("Hola mundo!");
-        ventana.setSize(1000,800);
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventana.setLocationRelativeTo(null);
-        ventana.setLayout(new BorderLayout(5,5));
+public class Pantalla extends JFrame {
+
+    private JButton[] botonesAsientos = new JButton[30];
+    private JTextField txtNombrePasajero;
+    private JTextArea areaConsola;
+
+    private JButton btnSellTicket;
+    private JButton btnCancelTicket;
+    private JButton btnDispatch;
+    private JButton btnPrintPassengers;
+    private JButton btnViewIncome;
+    private JButton btnSearchPassenger;
+
+    private final Color COLOR_DISPONIBLE = new Color(46, 204, 113);
+    private final Color COLOR_OCUPADO = new Color(231, 76, 60);
+    private final Color COLOR_PALINDROMO = new Color(241, 196, 15);
+
+    public Pantalla() {
+        setTitle("Sistema de Reservas de Boletos de Avion ");
+        setSize(950, 650);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setLayout(new BorderLayout(10, 10));
         
+        iniciarIU();
+    }
+
+    private void iniciarIU() {
+        JPanel panelAsientos = new JPanel(new GridLayout(6, 5, 8, 8));
+        panelAsientos.setBorder(BorderFactory.createTitledBorder("Mapa de Asientos del Avion "));
+
+        for (int i = 0; i < 30; i++) {
+            botonesAsientos[i] = new JButton("Asiento " + (i + 1));
+            botonesAsientos[i].setBackground(COLOR_DISPONIBLE);
+            botonesAsientos[i].setForeground(Color.WHITE);
+            botonesAsientos[i].setFont(new Font("Arial", Font.BOLD, 11));
+            botonesAsientos[i].setFocusPainted(false);
+
+            final int numeroAsiento = i + 1;
+            botonesAsientos[i].addActionListener(e -> {
+                areaConsola.append("Seleccionado el Asiento " + numeroAsiento + "\n");
+                botonesAsientos[numeroAsiento-1].setBackground(COLOR_OCUPADO);
+            });
+            panelAsientos.add(botonesAsientos[i]);
+        }
         
-        JLabel titulo = new JLabel("Palindromo Air");        
-        JPanel panelSuperior = new JPanel();
-        panelSuperior.add(titulo);     
-        
-        JButton boton1 = new JButton("Sell Ticket");
-        JButton boton2 = new JButton("Cancel Ticket");
-        JButton boton3 = new JButton("Dispatch");
-        JButton boton4 = new JButton("Print Passengers");
-        JButton boton5 = new JButton("View Income");
-        JButton boton6 = new JButton("Search Passenger");
-        JPanel panelBotones = new JPanel(new GridLayout(2,3,5,5));
-        panelBotones.add(boton1);
-        panelBotones.add(boton2);
-        panelBotones.add(boton3);
-        panelBotones.add(boton4);
-        panelBotones.add(boton5);
-        panelBotones.add(boton6);
-        
-        
-        JTextArea consola = new JTextArea(6,50);
-        consola.setEditable(false);
-        consola.setFont(new Font("Monospaced", Font.PLAIN, 13));
-        consola.setBackground(new Color(30, 30, 30));
-        consola.setForeground(Color.GREEN);
-        JScrollPane panelConsola = new JScrollPane();
-        panelConsola.setBorder(BorderFactory.createTitledBorder("Consola"));
-        panelConsola.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        panelConsola.setPreferredSize(new Dimension(0, 180));
-        
-        JPanel panelInferior = new JPanel(new BorderLayout(0,10));
-        panelInferior.setBorder(BorderFactory.createEmptyBorder(10, 20, 20, 20));
+        JPanel panelComandos = new JPanel(new GridLayout(8, 1, 5, 8));
+        panelComandos.setBorder(BorderFactory.createTitledBorder("Operaciones de Vuelo"));
+
+        txtNombrePasajero = new JTextField();
+        txtNombrePasajero.setBorder(BorderFactory.createTitledBorder("Nombre del Pasajero"));
+
+        btnSellTicket = new JButton("Sell Ticket");
+        btnCancelTicket = new JButton("Cancel Ticket");
+        btnDispatch = new JButton("Dispatch");
+        btnPrintPassengers = new JButton("Print Passengers");
+        btnViewIncome = new JButton("View Income");
+        btnSearchPassenger = new JButton("Search Passenger");
+
+        panelComandos.add(txtNombrePasajero);
+        panelComandos.add(btnSellTicket);
+        panelComandos.add(btnCancelTicket);
+        panelComandos.add(btnDispatch);
+        panelComandos.add(btnPrintPassengers);
+        panelComandos.add(btnViewIncome);
+        panelComandos.add(btnSearchPassenger);
+
+       
+        areaConsola = new JTextArea(8, 50);
+        areaConsola.setEditable(false);
+        areaConsola.setFont(new Font("Monospaced", Font.PLAIN, 12));
+        areaConsola.setBackground(new Color(245, 245, 245));
+
+        JScrollPane consola = new JScrollPane(areaConsola);
+        consola.setBorder(BorderFactory.createTitledBorder("Consola de Estado del Vuelo"));
 
         
-        ventana.add(panelSuperior, BorderLayout.NORTH);
-        ventana.add(panelBotones, BorderLayout.SOUTH);
-        panelBotones.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        ventana.setVisible(true);
+        add(panelAsientos, BorderLayout.CENTER);
+        add(panelComandos, BorderLayout.EAST);
+        add(consola, BorderLayout.SOUTH);
+
+        areaConsola.append("Sistema de Vuelo preparado y listo para continuar.\n");
     }
     
 }
